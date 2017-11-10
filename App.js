@@ -3,6 +3,8 @@ import { Platform, WebView, View, StatusBar, BackHandler } from 'react-native';
 import WebViewAndroid from 'react-native-webview-android';
 
 export default class App extends Component {
+  state = { backPressTime: 0 };
+
   componentDidMount = () => {
     BackHandler.addEventListener('hardwareBackPress', this.backHandler);
   };
