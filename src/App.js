@@ -38,10 +38,7 @@ export default class App extends Component {
       Alert.alert(
         '단골프리미엄',
         '종료하시겠습니까?',
-        [
-          { text: '취소', onPress: () => console.log('Cancel Pressed') },
-          { text: '종료', onPress: () => BackHandler.exitApp() },
-        ],
+        [{ text: '취소' }, { text: '종료', onPress: () => BackHandler.exitApp() }],
         { cancelable: false },
       );
 
