@@ -3297,8 +3297,8 @@ react-devtools-core@^2.5.0:
     ws "^2.0.3"
 
 react-native-webview-android@^1.1.12:
-  version "1.1.12"
-  resolved "https://registry.yarnpkg.com/react-native-webview-android/-/react-native-webview-android-1.1.12.tgz#86c7f218e349cd5f1738dae093de3a015cdbb2b4"
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/react-native-webview-android/-/react-native-webview-android-1.1.13.tgz#c1cd4c127e22a9c925444aaa998ca0780a2f7cd5"
   dependencies:
     create-react-class "^15.6.2"
     prop-types "^15.6.0"
