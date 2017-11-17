@@ -1,24 +1,6 @@
 import React, { Component } from 'react';
-import { BackHandler, Alert } from 'react-native';
-import { StackNavigator } from 'react-navigation';
-
-import WebviewScreen from './screens/WebviewScreen';
-import CameraScreen from './screens/CameraScreen';
-
-const Root = StackNavigator(
-  {
-    Webview: {
-      screen: WebviewScreen,
-    },
-    Camera: {
-      screen: CameraScreen,
-    },
-  },
-  {
-    initialRouteName: 'Webview',
-    headerMode: 'none',
-  },
-);
+import { BackHandler, Alert, Platform, WebView, View, StatusBar } from 'react-native';
+import WebViewAndroid from 'react-native-webview-android';
 
 export default class App extends Component {
   state = { backPressTime: 0 };
@@ -56,16 +38,44 @@ export default class App extends Component {
     navigation.navigate('Camera');
   };
 
-  setWebviewReference = webview => (this.webview = webview);
+  setWebviewReference = webview => {
+    console.log(webview);
+    this.webview = webview;
+  };
 
   render() {
+    const url = 'http://192.168.10.53:3000';
+    // const url = 'http://van.aty.kr';
+
+    if (Platform.OS === 'ios') {
+      return (
+        <View style={{ flex: 1 }}>
+          <StatusBar backgroundColor="#fe931f" barStyle="light-content" hidden />
+          <WebView
+            ref={webview => (this.webview = webview)}
+            source={{ uri: url }}
+            startInLoadingState
+            scalesPageToFit
+            javaScriptEnabled
+            bounces={false}
+            style={{ flex: 1 }}
+            // onMessage={event => screenProps.onMessage(event, navigation)}
+          />
+        </View>
+      );
+    }
+
     return (
-      <Root
-        screenProps={{
-          onMessage: this.onMessage,
-          setWebviewReference: this.setWebviewReference,
-        }}
-      />
+      <View style={{ flex: 1 }}>
+        <StatusBar barStyle="light-content" />
+        <WebViewAndroid
+          ref={webview => (this.webview = webview)}
+          javaScriptEnabled
+          // onMessage={event => screenProps.onMessage(event, navigation)}
+          source={{ uri: url }}
+          style={{ flex: 1 }}
+        />
+      </View>
     );
   }
 }

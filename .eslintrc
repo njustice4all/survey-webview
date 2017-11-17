@@ -19,6 +19,7 @@
     "arrow-parens": 0,
     "import/extensions": 0,
     "import/no-unresolved": 0,
-    "class-methods-use-this": 0
+    "class-methods-use-this": 0,
+    "no-use-before-define": 0
   }
 }
