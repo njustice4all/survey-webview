@@ -1,16 +1,38 @@
 import React, { Component } from 'react';
-import { BackHandler, Alert, Platform, WebView, View, StatusBar } from 'react-native';
+import {
+  BackHandler,
+  Alert,
+  Platform,
+  WebView,
+  View,
+  StatusBar,
+  // PermissionsAndroid,
+} from 'react-native';
 import WebViewAndroid from 'react-native-webview-android';
 
 export default class App extends Component {
   state = { backPressTime: 0 };
 
-  componentDidMount = () => {
-    BackHandler.addEventListener('hardwareBackPress', this.backHandler);
+  componentDidMount = async () => {
+    // BackHandler.addEventListener('hardwareBackPress', this.backHandler);
+    // try {
+    //   const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, {
+    //     title: 'this is title',
+    //     message: 'this is message',
+    //   });
+    //   console.log(granted);
+    //   if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+    //     console.log('가능');
+    //   } else {
+    //     console.log('불가능');
+    //   }
+    // } catch (err) {
+    //   console.warn(err);
+    // }
   };
 
   componentWillUnmount = () => {
-    BackHandler.removeEventListener('hardwareBackPress', this.backHandler);
+    // BackHandler.removeEventListener('hardwareBackPress', this.backHandler);
   };
 
   backHandler = () => {
@@ -44,8 +66,8 @@ export default class App extends Component {
   };
 
   render() {
-    const url = 'http://192.168.10.53:3000';
-    // const url = 'http://van.aty.kr';
+    // const url = 'http://192.168.10.53:3000';
+    const url = 'http://van.aty.kr';
 
     if (Platform.OS === 'ios') {
       return (
