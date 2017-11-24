@@ -2272,6 +2272,12 @@ inquirer@^3.0.6:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
+invariant@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.0.tgz#c8d7e847366a49cc18b622f058a689d481e895f2"
+  dependencies:
+    loose-envify "^1.0.0"
+
 invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
@@ -2840,6 +2846,10 @@ jsx-ast-utils@^2.0.0:
   resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-2.0.1.tgz#e801b1b39985e20fffc87b40e3748080e2dcac7f"
   dependencies:
     array-includes "^3.0.3"
+
+keymirror@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/keymirror/-/keymirror-0.1.1.tgz#918889ea13f8d0a42e7c557250eee713adc95c35"
 
 kind-of@^3.0.2:
   version "3.2.2"
@@ -3717,12 +3727,23 @@ react-native-camera@^0.12.0:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-check-app-install@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-check-app-install/-/react-native-check-app-install-0.0.4.tgz#336b842e9816c9af373498fe397072ec9c54ed40"
+
 react-native-webview-android@^1.1.12:
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/react-native-webview-android/-/react-native-webview-android-1.1.13.tgz#c1cd4c127e22a9c925444aaa998ca0780a2f7cd5"
   dependencies:
     create-react-class "^15.6.2"
     prop-types "^15.6.0"
+
+react-native-webview-bridge@^0.33.0:
+  version "0.33.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview-bridge/-/react-native-webview-bridge-0.33.0.tgz#7f9b7fb903b4ed13f4edcab52e654e9bffea4fd4"
+  dependencies:
+    invariant "2.2.0"
+    keymirror "0.1.1"
 
 react-native@0.50.3:
   version "0.50.3"

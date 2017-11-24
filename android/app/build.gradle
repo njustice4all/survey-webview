@@ -148,6 +148,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-webview-bridge')
+    // compile project(':react-native-webview-bridge')
+    compile project(':react-native-check-app-install')
     compile project(':react-native-camera')
     compile project(':react-native-webview-android')
     compile fileTree(dir: "libs", include: ["*.jar"])

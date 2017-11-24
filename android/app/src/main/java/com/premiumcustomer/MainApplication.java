@@ -3,6 +3,9 @@ package com.premiumcustomer;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.github.alinz.reactnativewebviewbridge.WebViewBridgePackage;
+// import com.github.alinz.reactnativewebviewbridge.WebViewBridgePackage;
+import com.rpt.reactnativecheckpackageinstallation.CheckPackageInstallationPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.burnweb.rnwebview.RNWebViewPackage;
 import com.facebook.react.ReactNativeHost;
@@ -23,11 +26,8 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new RCTCameraPackage(),
-            new RNWebViewPackage()
-      );
+      return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new WebViewBridgePackage(), new CheckPackageInstallationPackage());
     }
 
     @Override
