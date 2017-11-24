@@ -6,7 +6,8 @@ import {
   WebView,
   View,
   StatusBar,
-  // PermissionsAndroid,
+  PermissionsAndroid,
+  Linking,
 } from 'react-native';
 import WebViewAndroid from 'react-native-webview-android';
 
@@ -14,28 +15,34 @@ export default class App extends Component {
   state = { backPressTime: 0 };
 
   componentDidMount = async () => {
-    // BackHandler.addEventListener('hardwareBackPress', this.backHandler);
-    // try {
-    //   const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, {
-    //     title: 'this is title',
-    //     message: 'this is message',
-    //   });
-    //   console.log(granted);
-    //   if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-    //     console.log('가능');
-    //   } else {
-    //     console.log('불가능');
-    //   }
-    // } catch (err) {
-    //   console.warn(err);
-    // }
+    if (Platform.OS === 'android') {
+      BackHandler.addEventListener('hardwareBackPress', this.backHandler);
+      try {
+        const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, {
+          title: 'this is title',
+          message: 'this is message',
+        });
+        console.log(granted);
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('가능');
+        } else {
+          console.log('불가능');
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    }
   };
 
   componentWillUnmount = () => {
-    // BackHandler.removeEventListener('hardwareBackPress', this.backHandler);
+    if (Platform.OS === 'android') {
+      BackHandler.removeEventListener('hardwareBackPress', this.backHandler);
+    }
   };
 
   backHandler = () => {
+    // Linking.openURL('market://details?id=com.nice.appcard');
+    Linking.openURL('market://details?id=com.nice.appcard');
     const now = new Date();
     // double press on android back button
     if (now.getTime() - this.state.backPressTime < 350) {
@@ -66,8 +73,8 @@ export default class App extends Component {
   };
 
   render() {
-    // const url = 'http://192.168.10.53:3000';
-    const url = 'http://van.aty.kr';
+    const url = 'http://192.168.10.53:3000';
+    // const url = 'http://van.aty.kr';
 
     if (Platform.OS === 'ios') {
       return (
@@ -89,7 +96,7 @@ export default class App extends Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <StatusBar barStyle="light-content" />
+        <StatusBar barStyle="light-content" hidden />
         <WebViewAndroid
           ref={webview => (this.webview = webview)}
           javaScriptEnabled
