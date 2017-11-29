@@ -71,7 +71,7 @@ export default class App extends Component {
     return true;
   };
 
-  onMessage = event => {
+  onMessage = () => {
     // console.log('msg from web ->', event.nativeEvent.data);
     const { currentOS } = this.state;
     let url = null;
@@ -88,10 +88,6 @@ export default class App extends Component {
         Linking.openURL(url);
       }
     });
-  };
-
-  _onNavigationStateChange = webviewState => {
-    // console.log(webviewState);
   };
 
   render() {
@@ -141,7 +137,7 @@ export default class App extends Component {
           bounces={false}
           style={{ flex: 1 }}
           onMessage={this.onMessage}
-          onNavigationStateChange={this._onNavigationStateChange}
+          // onNavigationStateChange={this._onNavigationStateChange}
         />
       </View>
     );
